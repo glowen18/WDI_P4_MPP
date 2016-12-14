@@ -1,0 +1,19 @@
+<h1>Log In</h1>
+<%= form_for :login do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+<% end %>
+
+<% if current_user %>
+  Logged in as: <%= current_user.name %> <%= link_to 'Log Out', logout_path, method: :delete %>
+<% else %>
+  <%= link_to 'Log In', users_path %>
+  <%= link_to 'Log Out', logout_path %>
+  <%= link_to 'Sign Up', new_user_path %>
+<% end %>
