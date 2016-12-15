@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<h2 class="project_title"><%= @project.title %></h2>
 
+<div id="tasks_wrapper">
+	<%= render @project.tasks %>
+	<div id="form">
+		<%= render "tasks/form" %>
+	</div>
+</div>
 
 <div class="links">
   <%= link_to 'Edit Project', edit_project_path(@project) %> |

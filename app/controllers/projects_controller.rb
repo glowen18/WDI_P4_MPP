@@ -7,10 +7,8 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.user = current_user
-    
     if @project.save
-      redirect_to :projects
+      redirect_to @project, notice: 'Project was successfully created!'
     else
       render :new
     end
@@ -27,8 +25,8 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.update_attributes(project_params)
-      redirect_to :projects
+    if @project.update(project_params)
+      redirect_to @project, notice: 'Project was successfully updated!'
     else
       render :edit
     end
@@ -36,17 +34,15 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
-    redirect_to projects.path
+    redirect_to projects_path, notice: 'Project was successfully deleted.'
   end
 
-  private
+private
+  def set_project
+    @project = Project.find(params[:id])
+  end
 
-    def project_params
-      params.require(:project).permit(:title)
-    end
-
-    def set_project
-      project = Project.find(params[:id])
-    end
-
+  def project_params
+    params.require(:project).permit(:title)
+  end
 end
