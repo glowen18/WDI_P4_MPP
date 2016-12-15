@@ -9,14 +9,10 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login'=> 'sessions#create'
   delete '/logout' => 'sessions#destroy'
-  # get '/signup' => 'users#new'
+
   resources :users
-
   resources :projects do
-    resources :tasks do
+    resources :tasks
   resources :password_resets, only:[:new, :create, :edit, :update]
-      end
-    end
   end
-
 end

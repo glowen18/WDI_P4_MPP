@@ -13,8 +13,6 @@ class TasksController < ApplicationController
   	def create
       @project = Project.find(params[:project_id])
   		@task = Task.new(task_params)
-      @task.project = @project
-      @project.user = User.find_by(id: session[:user_id])
 
       if @task.save
         redirect_to @project, notice: "Your project was successfully created!"

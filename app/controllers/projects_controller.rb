@@ -7,6 +7,9 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @user = User.find(session[:user_id])
+    @project.user = @user
+
     if @project.save
       redirect_to @project, notice: 'Project was successfully created!'
     else
