@@ -1,4 +1,27 @@
 <%= form_for([@project, @project.tasks.build]) do |f| %>
-  <%= f.text_field :content, placeholder: "Add Task" %>
-  <%= f.submit %>
+
+  <div class="field">
+    <%= f.label :task %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :time_to_do%>
+    <%= f.text_field :time_to_do%>
+  </div>
+  <div class="field">
+    <%= f.label :due_date %>
+    <%= f.date_field :due_date %>
+  </div>
+  <div class="field">
+    <%= f.label :completed_at%>
+    <%= f.date_field :completed_at%>
+  </div>
+
+  <div>
+    <%= f.hidden_field :project_id, :value => @project.id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

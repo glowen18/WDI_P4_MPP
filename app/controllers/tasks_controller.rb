@@ -1,37 +1,52 @@
 class TasksController < ApplicationController
-  before_action :set_project
-  	before_action :set_task, except: [:create]
+  	before_action :set_task, only: [:show, :edit, :update, :destroy]
+
+    def index
+      @tasks = Task.all
+    end
+
+    def new
+      @project = Project.find(params[:project_id])
+      @task = Project.new
+    end
 
   	def create
-  		@task = @project.tasks.create(task_params)
-  		redirect_to @project
+      @project = Project.find(params[:project_id])
+  		@task = Task.new(task_params)
+      @task.project = @project
+      @project.user = User.find_by(id: session[:user_id])
+
+      if @task.save
+        redirect_to @project, notice: "Your project was successfully created!"
+      else
+        redirect_to @project, notice: "Your project was not successfully created!"
+      end
   	end
+
+    def edit
+    end
+
+    def update
+      if @task.update_attributes(task_params)
+        redirect_to @task, notice: 'Task was successfully updated!'
+      else
+        render :edit
+      end
+    end
 
   	def destroy
-  		if @task.destroy
-  			flash[:success] = "Task item was deleted."
-  		else
-  			flash[:error] = "Task item could not be deleted."
-  		end
-  		redirect_to @project
+  		@task.destroy
+  		redirect_to @project, notice: 'Task was successfully deleted!'
   	end
 
-  	def complete
-  		@task.update_attribute(:completed_at, Time.now)
-  		redirect_to @project, notice: "Task completed"
-  	end
 
   private
-
-  	def set_project
+  	def set_task
+      @task = Task.find(params[:id])
   		@project = Project.find(params[:project_id])
   	end
 
-  	def set_task
-  		@task = @project.tasks.find(params[:id])
-  	end
-
   	def task_params
-  		params[:task].permit(:content)
+      params.require(:task).permit(:task_date, :title, :description, :user_id, :project_id)
   	end
 end

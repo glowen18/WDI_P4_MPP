@@ -2,17 +2,19 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  post '/login'=> 'sessions#create'
+  get 'password_resets/new'
+  get 'password_resets/edit'
+
+
   get '/login' => 'sessions#new'
+  post '/login'=> 'sessions#create'
   delete '/logout' => 'sessions#destroy'
-  get '/signup' => 'users#new' 
+  # get '/signup' => 'users#new'
   resources :users
 
   resources :projects do
     resources :tasks do
-
-      member do
-        patch :complete
+  resources :password_resets, only:[:new, :create, :edit, :update]
       end
     end
   end

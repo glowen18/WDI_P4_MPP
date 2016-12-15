@@ -3,7 +3,9 @@
 <h2 class="project_title"><%= @project.title %></h2>
 
 <div id="tasks_wrapper">
-	<%= render @project.tasks %>
+	<% @project.tasks.each do |task| %>
+	  <%= task.title %>
+	<% end %>
 	<div id="form">
 		<%= render "tasks/form" %>
 	</div>
