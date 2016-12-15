@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h3 class="project_title"><%= @project.title %></h3>
+
+
+<div id="tasks_wrapper">
+  <%= render @project.tasks %>
+  <div id="form">
+    <%= render "tasks/form" %>
+  </div>
+</div>
+
+<div class="links">
+  <%= link_to 'Edit Project', edit_project_path(@project) %> |
+  <%= link_to 'Delete Project', project_path(@project), method: :delete, data: {confirm: "Are you sure?"} %> |
+  <%= link_to 'Back', projects_path %>
+</div>
