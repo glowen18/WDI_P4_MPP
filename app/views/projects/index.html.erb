@@ -1,6 +1,9 @@
+
+<p>prjoerere</p>
 <% @projects.each do |project| %>
+
   <div class="index_row clearfix">
-    <h3 class="project_title"><%= link_to project.title, project %></h3>
+    <h3 class="project_title"><%= link_to project.title, project_path(project.id) %></h3>
   </div>
 <% end %>
 

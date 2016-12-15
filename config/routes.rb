@@ -2,12 +2,11 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  post '/login'    => 'sessions#create'
-  get '/login'     => 'sessions#new'
+  post '/login'=> 'sessions#create'
+  get '/login' => 'sessions#new'
   delete '/logout' => 'sessions#destroy'
-
-  resources :users do
-    resources :projects do
+  get '/signup' => 'users#new' 
+  resources :users
 
   resources :projects do
     resources :tasks do
@@ -15,8 +14,6 @@ Rails.application.routes.draw do
       member do
         patch :complete
       end
-    end
-  end
     end
   end
 
