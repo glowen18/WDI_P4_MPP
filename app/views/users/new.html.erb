@@ -1,22 +1,25 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<div class="container text-center">
+  <!-- <div class="form-control form-"> -->
+  <div id="logbox">
     <%= form_for(@user) do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+    <form id="signup" method="post" action="/signup">
+      <h1>create an account</h1>
 
-      <%= f.label :email %>
-      <%= f.email_field :email %>
+        <input name="user[name]" type="text" placeholder="What's your name?" autofocus="autofocus" class="input pass"/>
+        <%= f.text_field :name %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+        <input name="user[email]" type="email" placeholder="Email address" class="input pass"/>
+        <%= f.email_field :email %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+        <input name="user[password]" type="password" placeholder="Choose a password"  class="input pass"/>
+        <%= f.password_field :password %>
 
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
+        <input name="user[password2]" type="password" placeholder="Confirm password"  class="input pass"/>
+        <%= f.password_field :password_confirmation %>
+        
+        <%= f.submit "Create my account", class: "btn btn-primary" %>
+    </form>
     <% end %>
   </div>
-</div>
+ </div>
