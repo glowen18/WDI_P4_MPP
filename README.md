@@ -34,12 +34,12 @@ CSS3        | Style sheet language used for styling web content
 [Link to Trello Board](https://trello.com/b/3jzS8p46/project-4-major-productivity-planner)
 
 #####Wireframes
-![WireFrame](assets/Wireframe-Page-1.png)
-![WireFrame](assets/wireframe-2.png)
-![WireFrame](assets/wireframe-3.png)
+![WireFrame](app/assets/Wireframe-Page-1.png)
+![WireFrame](app/assets/wireframe-2.png)
+![WireFrame](app/assets/wireframe-3.png)
 
 #####ERD
-![ERD](assets/erd.jpg)
+![ERD](app/assets/erd.jpg)
 
 
 ####INSTALLATION INSTRUCTIONS
