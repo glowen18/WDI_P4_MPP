@@ -40,7 +40,7 @@ class TasksController < ApplicationController
 
   private
   	def set_task
-      @task = Task.find(params[:id])
+      @task = Task.find(params[:project_task_id])
   		@project = Project.find(params[:project_id])
   	end
 

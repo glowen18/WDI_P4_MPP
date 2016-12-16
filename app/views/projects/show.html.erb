@@ -1,35 +1,48 @@
-<p id="notice"><%= notice %></p>
+<table class = "table">
+ <thead>
+    <tr>
+       <th><%= @project.title %></th>
+    </tr>
+ </thead>
+ <tbody>
+   <% @project.tasks.each do |task| %>
+   <tr>
+     <td><%= task.title %></td>
+   </tr>
+   <% end %>
+ </tbody>
+</table>
 
-<h2 class="project_title"><%= @project.title %></h2>
+<hr>
 
 
-  <table class = "table">
+ <%= form_for([@project, @project.tasks.build]) do |f| %>
+   <div class="field">
+     <%= f.label :task %>
+     <%= f.text_field :title %>
+   </div>
+   <div class="field">
+     <%= f.label :time_to_do%>
+     <%= f.text_field :time_to_do%>
+   </div>
+   <div class="field">
+     <%= f.label :due_date %>
+     <%= f.date_field :due_date %>
+   </div>
+   <div class="field">
+     <%= f.label :completed_at%>
+     <%= f.date_field :completed_at%>
+   </div>
 
-   <thead>
-      <tr>
-         <th>Task</th>
-         <th>Time To Do</th>
-         <th>Due Date</th>
-         <th>Completed</th>
-      </tr>
-   </thead>
-   <tbody>
-     <% @project.tasks.each do |task| %>
-     <tr>
-       <td><%= task.title %></td>
-     </tr>
-     <% end %>
-   </tbody>
- </table>
+   <div>
+     <%= f.hidden_field :project_id, :value => @project.id %>
+   </div>
 
-<div id="tasks_wrapper">
-	<div id="form">
-		<%= render "tasks/form" %>
-	</div>
-</div>
+   <div class="actions">
+     <%= f.submit %>
+   </div>
+ <% end %>
 
-<div class="links">
-  <%= link_to 'Edit Project', edit_project_path(@project) %> |
-  <%= link_to 'Delete Project', project_path(@project), method: :delete, data: {confirm: "Are you sure?"} %> |
-  <%= link_to 'Back', projects_path %>
-</div>
+  <hr>
+
+  <span class="bottomalign"><%= link_to 'Delete Project', project_path(@project), data: {confirm: 'Are u sure?'}, method: :delete, class: "btn btn-danger" %></span>

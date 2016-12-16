@@ -1,23 +1,21 @@
-<div class="container">
-  <table class = "table">
-      <thead>
-       <tr>
-          <th>Project</th>
-          <th>Title</th>
-       </tr>
+
+<div class="container-fluid">
+
+  <table class = "table table-hover">
+
+    <thead>
+      <tr>
+        <th>Title</th>
+      </tr>
     </thead>
 
     <tbody>
       <% @projects.each do |project| %>
-      <tr>
+        <tr>
         <td><%= link_to project.title, project_path(project.id) %></td>
+
       </tr>
+      <% end %>
     </tbody>
-  <% end %>
   </table>
-<div class="container">
-  <button type="button" class="btn btn-info">
-  <%= link_to "Back to home", new_project_path %>
-  </button>
-</div>
 </div>

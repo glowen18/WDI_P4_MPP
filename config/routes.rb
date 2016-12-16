@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#create'
 
   post '/login'=> 'sessions#create'
-  delete '/logout' => 'sessions#destroy'
+  delete '/logout' => 'sessions#destroy', as: :logout
 
   get 'password_resets/new'
 

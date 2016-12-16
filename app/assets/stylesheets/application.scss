@@ -16,8 +16,7 @@
 
 body {
   font-size: 16px;
-  background-color: #17c3ca;
-
+  background-color: #10D1EF;
 }
 
 .jumbotron {
@@ -32,9 +31,22 @@ body {
   background-color: #4617CA;
 }
 
+.bottomaligned {
+  position:absolute; bottom:0;  margin-bottom:7px; left: 0;
+}
+.bottomright {
+  position:absolute; bottom:0;  margin-bottom:7px; margin:7px; right: 0;
+}
+.bottomleft {
+  position:absolute; bottom:0;  margin-bottom:7px; left: 100px;
+}
+.fixedheight {
+  height: 200px;  width: 243px;  position:relative; border:1px solid;
+}
+
 .navbar-default {
     background-color: #4617CA;
-    border-color: lightblue;
+    border-color: #10D1EF;
     border-radius: 0;
 }
 
