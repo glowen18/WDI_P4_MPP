@@ -20,11 +20,11 @@
           <li><%= link_to "Projects", projects_path %></li>
           <li><%= link_to "Log in", login_path %></li>
           <li>
-            <% if current_user %>
+            <% if !current_user %>
               <!-- <%= link_to "Logout", :controller => 'sessions', :action => 'destroy' %> -->
-              <%= link_to "Log Out", logout_path %>
-            <% else %>
               <%= link_to "Log In", login_path %>
+            <% else %>
+              <%= link_to "Log Out", logout_path %>
             <% end %>
           </li>
         </ul>

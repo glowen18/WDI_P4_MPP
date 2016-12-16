@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  rescue_from ActionController::RedirectBackError, with: :redirect_to_default
-  before_action :set_user, only:[:show, :destroy]
+  before_action :set_user, only:[:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
