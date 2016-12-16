@@ -5,5 +5,5 @@ test:
   adapter: async
 
 production:
-  adapter: postgresql
+  adapter: redis
   url: https://p4rubyapp.herokuapp.com
