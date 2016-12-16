@@ -1,11 +1,15 @@
 <h1>List of My Projects</h1>
 <% @projects.each do |project| %>
 
-  <div class="index_row clearfix">
-    <h3 class="project_title"><%= link_to project.title, project_path(project.id) %></h3>
-  </div>
-<% end %>
+   <ul>
+      <li>
+         <th>Project Title</th>: <td><%= link_to project.title, project_path(project.id) %>
+      </li>
+   </ul>
 
-<div class="links">
+<% end %>
+<div class="container">
+  <button type="button" class="btn btn-info">
   <%= link_to "Back to home", new_project_path %>
+  </button>
 </div>

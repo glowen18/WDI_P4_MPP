@@ -2,10 +2,27 @@
 
 <h2 class="project_title"><%= @project.title %></h2>
 
+
+  <table class = "table">
+
+   <thead>
+      <tr>
+         <th>Task</th>
+         <th>Time To Do</th>
+         <th>Due Date</th>
+         <th>Completed</th>
+      </tr>
+   </thead>
+   <tbody>
+     <% @project.tasks.each do |task| %>
+     <tr>
+       <td><%= task.title %></td>
+     </tr>
+     <% end %>
+   </tbody>
+ </table>
+
 <div id="tasks_wrapper">
-	<% @project.tasks.each do |task| %>
-	  <%= task.title %>
-	<% end %>
 	<div id="form">
 		<%= render "tasks/form" %>
 	</div>
