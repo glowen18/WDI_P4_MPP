@@ -43,8 +43,15 @@ CSS3        | Style sheet language used for styling web content
 
 
 ####INSTALLATION INSTRUCTIONS
+Go to Github Project Page - https://github.com/glowen18/p4_ruby_app
+Click on this Online Link to get to Productivity Planner - https://p4rubyapp.herokuapp.com/
+Create a Productivity Planner and Enjoy!
 
 ####UNSOLVED PROBLEMS
+
+* Logout link not working
+* User profile page not setup as a link
+* Styling still needs to be done on most pages
 
 ####STRETCH GOALS
 
