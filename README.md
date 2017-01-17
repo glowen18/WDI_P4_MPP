@@ -51,6 +51,7 @@ Create a Productivity Planner and Enjoy!
 
 * Logout link not working
 * User profile page not setup as a link
+* Need a navbar with links to all different pages
 * Styling still needs to be done on most pages
 
 ####STRETCH GOALS
