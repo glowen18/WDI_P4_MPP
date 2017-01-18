@@ -3,11 +3,10 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get '/login' => 'sessions#new'
-  get '/signup' => 'users#create'
-
   post '/login'=> 'sessions#create'
-  delete '/logout' => 'sessions#destroy', as: :logout
 
+  get '/signup' => 'users#create'
+  delete '/logout' => 'sessions#destroy'
   get 'password_resets/new'
 
   get 'password_resets/edit'
